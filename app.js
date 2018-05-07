@@ -18,10 +18,12 @@ app.use(bodyParser.json())
 
 // app.get('/blocks', (req, res)=>res.end('the block is '+ btcBlocks))
 
-app.get('/', function(req, res){
+app.get('/', (req, res)=>{
 res.sendFile(__dirname + "/index.html")
 
-})
+});
+
+app.post('/wallet', (req, res)=> {let brainscr = req.body.brainsrc; console.log(brainscr); res.end("sent")})
 
 app.listen(port);
 console.log('app running on port', port)
